@@ -3,7 +3,22 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
+  get 'home/company'
+  get 'reservation/index'
+  get 'reservation/login'
+  get 'reservation/panel'
+  get 'reservation/resumen'
+  post 'reservation/create'
+  post 'reservation/panel' => 'reservation#consultar'
+  post   'reservation/login'   => 'reservation#createSessionCustomer'
+  delete 'reservation/logout'  => 'reservation#destroySessionCustomer'
+  get 'driver/login'
+  get 'driver/panel'
+  post   'driver/login'   => 'driver#createSessionDriver'
+  delete 'driver/logout'  => 'driver#destroySessionDriver'
+  resources :customer
+  resources :driver
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

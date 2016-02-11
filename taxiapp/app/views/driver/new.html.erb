@@ -1,0 +1,8 @@
+<h1>Nuevo Chofer</h1>
+<%= simple_form_for (@driver), url: '/driver', html: { method: :post }  do |f| %>
+  <%= f.input :email, label: 'Correo' %>
+  <%= f.input :name , label: 'Nombres'%>
+  <%= f.input :phone , label: 'Teléfono'%>
+  <%= f.input :password, label: 'Contraseña'%>
+  <%= f.button :submit, "Registrar" %>
+<% end %>

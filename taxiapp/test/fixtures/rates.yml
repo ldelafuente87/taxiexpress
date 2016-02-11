@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origenRuta: MyString
+  destinoRuta: MyString
+  precio: 
+
+two:
+  origenRuta: MyString
+  destinoRuta: MyString
+  precio: 

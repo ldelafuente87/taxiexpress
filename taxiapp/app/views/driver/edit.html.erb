@@ -1,0 +1,18 @@
+<h1>Actualizar mis Datos</h1>
+<%= simple_form_for (@driver)  do |f| %>
+<% movilities = options_from_collection_for_select(@movilities, 'id', 'descripcion') %>
+<h3>Datos del Chofer</h3>
+  <%= f.input :email, label: 'Correo' %>
+  <%= f.input :name , label: 'Nombres'%>
+  <%= f.input :phone , label: 'Teléfono'%>
+  <%= f.input :nroIdentidad , label: 'Nro. Doc. Identidad'%>
+  <h3>Datos del Auto</h3>
+  <%= f.input :nroPlaca , label: 'Nro. Placa'%>
+  <%= f.input :colorAuto , label: 'Color auto'%>
+  <%= f.input :marcaAuto , label: 'Marca auto'%>
+  <%= f.input :modeloAuto , label: 'Modelo auto'%>
+   Tipo Movilidad:
+  <%= f.select :mobility_id,  movilities%>
+  <%= f.button :submit, "Actualizar" %>
+<% end %>
+

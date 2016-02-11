@@ -7,6 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <div class="logo"><a>Taxi <span>Express</span></a></div>
+  <div class="nav">
+    <ul class="menu">
+    <li><%= link_to "Inicio", root_path  %></li>
+    <li><%= link_to "La Empresa", home_company_path  %></li>
+    <li><%= link_to "Solicitar Taxi", reservation_index_path  %></li>
+    <li><%= link_to "Soy chofer", driver_index_path  %></li>
+    
+</ul></div>
+</header>
+  
 
 <%= yield %>
 

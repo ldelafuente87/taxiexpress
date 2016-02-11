@@ -1,0 +1,8 @@
+<h1>Ingresar como Chofer</h1>
+<%= simple_form_for (:driver), url: driver_login_path, html: { method: :post }  do |f| %>
+  <%= f.input :email, label: 'Correo' %>
+ 
+  <%= f.input :password_digest, label: 'Contraseña'%>
+  <%= f.button :submit, "Ingresar" %>
+<% end %>
+<p>¿Nuevo Chofer? <%= link_to "Registrate!", new_driver_path %></p>

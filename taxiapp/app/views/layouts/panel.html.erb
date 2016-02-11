@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Taxiapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <% if !current_customer.nil? %>
+    <p>Bienvenido Sr.(a) <%=current_customer.name%></p>
+    <br/>
+    <%= link_to 'Solicitar Taxi', reservation_logout_path %>
+    <%= link_to 'Mis Solicitudes', reservation_logout_path %>
+    <%= link_to 'Salir', reservation_logout_path, :method => :delete %>
+   <%end%>
+   <% if !current_driver.nil? %>
+    <p>Bienvenido Sr.(a) <%=current_driver.name%></p>
+    <br/>
+     <%= link_to 'Mis Solicitudes', reservation_logout_path %>
+     <%= link_to 'Actualizar datos',  edit_driver_path(current_driver) %>
+    <%= link_to 'Salir', driver_logout_path, :method => :delete %>
+   <%end%>
+    <%= yield %>
+</body>
+</html>

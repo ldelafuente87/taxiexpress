@@ -1,0 +1,39 @@
+<h1>Solicitar Taxi</h1>
+<p>Consultar Tarifa</p>
+<%= simple_form_for (:rate), url: reservation_panel_path, html: { method: :post }  do |f| %>
+  <% options = options_from_collection_for_select(@rates, 'origenRuta', 'origenRuta') %>
+  Origen:
+  <%= f.select :origenRuta,  options%>
+  Destino:
+  <%= f.select :destinoRuta,  options%>
+  <%= f.button :submit, "Consultar" %>
+<% end %>
+<br/>
+<% if !mostrarPrecio.nil? %>
+<p>Precio:
+<%= mostrarPrecio.precio  %> Soles </p>
+<%else%>
+<p>Precio: 0 Soles</p>
+<%end%>
+<br/>
+<%= simple_form_for (:reservation), url: reservation_create_path, html: { method: :post }  do |f| %>
+<% movilities = options_from_collection_for_select(@movilities, 'id', 'descripcion') %>
+<% payment = options_from_collection_for_select(@payments, 'id', 'descripcion') %>
+<% if !mostrarPrecio.nil? %>
+<%= f.input :rate_id, :as => :hidden,:value => mostrarPrecio.id %>
+<% end%>
+ Tipo Movilidad:
+  <%= f.select :mobility_id,  movilities%>
+  Forma de pago:
+  <%= f.select :paymentmethod_id,  payment%>
+  <%= f.button :submit, "Solicitar Taxi" %>
+<% end %>
+<br/>
+<br/>
+<h3>Información sobre el tipo de Movilidad:</h3>
+<% @movilities.each do |mobil| %>
+<p><b>Tipo:</b> <%= mobil.descripcion %></p>
+<p><b>Capacidad hasta:</b> <%= mobil.maxAsiento %> <b>asientos</b></p>
+<%end%>
+
+

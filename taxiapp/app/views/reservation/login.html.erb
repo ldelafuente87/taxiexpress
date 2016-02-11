@@ -1,0 +1,8 @@
+<h1>Ingresar como Cliente</h1>
+<%= simple_form_for (:customer), url: reservation_login_path, html: { method: :post }  do |f| %>
+  <%= f.input :email, label: 'Correo' %>
+ 
+  <%= f.input :password_digest, label: 'Contraseña'%>
+  <%= f.button :submit, "Ingresar" %>
+<% end %>
+<p>¿Nuevo Cliente? <%= link_to "Registrate!", new_customer_path %></p>
