@@ -19,9 +19,7 @@
 <%= simple_form_for (:reservation), url: reservation_create_path, html: { method: :post }  do |f| %>
 <% movilities = options_from_collection_for_select(@movilities, 'id', 'descripcion') %>
 <% payment = options_from_collection_for_select(@payments, 'id', 'descripcion') %>
-<% if !mostrarPrecio.nil? %>
-<%= f.input :rate_id, :as => :hidden,:value => mostrarPrecio.id %>
-<% end%>
+
  Tipo Movilidad:
   <%= f.select :mobility_id,  movilities%>
   Forma de pago:

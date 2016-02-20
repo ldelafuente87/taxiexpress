@@ -13,7 +13,7 @@ class DriverController < ApplicationController
       @driver = Driver.find_by(email: params[:driver][:email].downcase)
       if @driver && @driver.authenticate(params[:driver][:password_digest])
       log_inDriver @driver
-      redirect_to driver_panel_path
+      redirect_to reservation_solicitudChofer_path
       else
       redirect_to driver_login_path
       end

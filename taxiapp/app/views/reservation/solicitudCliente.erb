@@ -1,0 +1,35 @@
+<h1>Mis Solicitudes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nro Solicitud</th>
+      <th>Origen</th>
+      <th>Destino</th>
+      <th>Chofer</th>
+      <th>Método de Pago</th>
+      <th>Tipo Mobilidad</th>
+      <th>Precio</th>
+      <th>Estado</th>
+      <th>Feedback</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservasCustomer.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.rate.origenRuta %></td>
+        <td><%= customer.rate.destinoRuta %></td>
+        <td><%= customer.driver.name %></td>
+        <td><%= customer.paymentmethod.descripcion %></td>
+        <td><%= customer.driver.mobility.descripcion %></td>
+        <td><%= customer.rate.precio %></td>
+        <td><%= customer.statu.descripcion%></td>
+        <td><%= link_to image_tag("feedback.png"),customer  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

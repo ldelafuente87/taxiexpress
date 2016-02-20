@@ -1,1 +1,11 @@
-<h1>Aquí irá el Resumen</h1>
+<h1>Resumen de la solicitud</h1>
+<% if !mostrarResumen.nil? %>
+<p><strong>Nombre del Chofer: </strong> <%=mostrarResumen.driver.name%></p>
+<br/>
+<p><strong>Tipo Mobilidad: </strong> <%=mostrarResumen.driver.mobility.descripcion%></p>
+<br/>
+<p><strong>Ruta Origen: </strong> <%=mostrarResumen.rate.origenRuta%></p>
+<p><strong>Ruta Destino: </strong> <%=mostrarResumen.rate.destinoRuta%></p>
+<p><strong>Precio Servicio: </strong> <%=mostrarResumen.rate.precio%> Soles</p>
+<%= link_to "Regresar",reservation_index_path%>
+<%end%>

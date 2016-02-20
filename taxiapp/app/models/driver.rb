@@ -1,5 +1,5 @@
 class Driver < ActiveRecord::Base
-      has_one :mobility
+      belongs_to :mobility
       has_many :reservation
       has_secure_password
 end

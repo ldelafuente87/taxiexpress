@@ -1,0 +1,26 @@
+<h1>Detalle de la Solicitud</h1>
+<br/>
+<p><strong>Origen ruta:</strong> <%=@reservation.rate.origenRuta%></p>
+
+<p><strong>Destino ruta:</strong> <%=@reservation.rate.destinoRuta%></p>
+<% if !current_customer.nil? %>
+<p><strong>Chofer:</strong> <%=@reservation.driver.name%></p>
+<%else%>
+<p><strong>Cliente:</strong> <%=@reservation.customer.name%></p>
+<%end%>
+
+<p><strong>Precio:</strong> <%=@reservation.rate.precio%> Soles</p>
+
+<% if !current_customer.nil? %>
+<%= simple_form_for (@reservation) do |f| %>
+<p><strong>Feedback:</strong><%=f.text_area :feedback,label: '' %></p>
+<%= f.button :submit, "Enviar" %>
+<%end%>
+<br/>
+<%= link_to "Regresar",reservation_solicitudCliente_path%>
+<%else%>
+<p><strong>Feedback:</strong><%=@reservation.feedback%></p>
+<br/>
+<%= link_to "Regresar",reservation_solicitudChofer_path%>
+<%end%>
+

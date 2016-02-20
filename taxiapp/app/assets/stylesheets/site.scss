@@ -36,3 +36,25 @@ margin-right: 95px;
 .menu li a {
   text-decoration: none;
 }
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    
+}
+
+th {
+    text-align: middle;
+    background-color: #f1c40f;
+    color:black;
+}
+
+td {
+     text-align:center; 
+    vertical-align:middle;
+}
+
+tr:hover{background-color:#f1c40f}

@@ -1,0 +1,35 @@
+<h1>Mis Solicitudes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nro Solicitud</th>
+      <th>Origen</th>
+      <th>Destino</th>
+      <th>Cliente</th>
+      <th>Método de Pago</th>
+      <th>Tipo Mobilidad</th>
+      <th>Precio</th>
+      <th>Estado</th>
+      <th>Feedback</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservasDriver.each do |driver| %>
+      <tr>
+        <td><%= driver.id %></td>
+        <td><%= driver.rate.origenRuta %></td>
+        <td><%= driver.rate.destinoRuta %></td>
+        <td><%= driver.customer.name %></td>
+        <td><%= driver.paymentmethod.descripcion %></td>
+        <td><%= driver.driver.mobility.descripcion %></td>
+        <td><%= driver.rate.precio %></td>
+        <td><%= driver.statu.descripcion%></td>
+        <td><%= link_to image_tag("search.png"),driver  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
